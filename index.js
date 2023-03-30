@@ -22,7 +22,11 @@ const connect = () => {
       throw err;
     });
 };
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3001", "https://yourtube30.netlify.app"],
+  })
+);
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/users", userRoutes);
